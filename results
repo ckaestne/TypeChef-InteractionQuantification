@@ -1,0 +1,126 @@
+.c File compilation:
+
+0 -> 122
+1 -> 416
+
+
+Top-level declarations:
+
+0 -> 190684
+1 -> 736396
+2 -> 97231
+3 -> 8240
+4 -> 68
+
+
+Structural nesting in the AST
+(counting only subtrees with distinct presence conditions)
+
+0 -> 2254
+1 -> 70227
+2 -> 279886
+3 -> 41757
+4 -> 1138
+5 -> 122
+6 -> 58
+
+
+Imported functions
+
+0 -> 3160
+1 -> 15399
+2 -> 1567
+3 -> 234
+4 -> 32
+5 -> 4
+6 -> 4
+7 -> 1
+
+
+Exported functions
+
+0 -> 354
+1 -> 599
+2 -> 55
+3 -> 6
+
+Condition that a function is globally exported in the project
+
+0 -> 364
+1 -> 594
+2 -> 22
+3 -> 1
+
+Condition that a function is globally NOT exported in the project
+(relevant for linker checks)
+
+0 -> 364
+1 -> 436
+2 -> 61
+3 -> 38
+4 -> 28
+5 -> 6
+6 -> 20
+7 -> 13
+8 -> 8
+10 -> 2
+28 -> 5
+
+Just for fun: condition that a top-level expression is locally NOT defined:
+
+0 -> 190684
+1 -> 712982
+2 -> 66085
+3 -> 28723
+4 -> 9011
+5 -> 3740
+6 -> 12444
+7 -> 1919
+8 -> 3478
+10 -> 1764
+28 -> 1789
+
+
+Expression types
+
+1 -> 511696
+2 -> 27508
+3 -> 6108
+4 -> 514
+5 -> 183
+6 -> 4
+
+
+Edges in an (incomplete?) control-flow graph
+
+0 -> 19903
+1 -> 120394
+2 -> 9834
+3 -> 2792
+4 -> 542
+5 -> 77
+6 -> 80
+7 -> 6
+8 -> 1
+9 -> 1
+10 -> 1
+11 -> 1
+12 -> 1
+13 -> 1
+14 -> 2
+
+Warnings from the simple static analyses (all type based, almost all integer warnings)
+
+0 -> 883
+1 -> 7014
+2 -> 1604
+3 -> 353
+4 -> 29
+6 -> 2
+
+Number of alternative types in an expression
+
+1 -> 524698
+2 -> 1343
+3 -> 31
+4 -> 2
