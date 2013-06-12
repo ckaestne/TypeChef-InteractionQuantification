@@ -40,7 +40,7 @@ object Stats {
 }
 
 object AnalyseStatistics extends App {
-//    FeatureExprFactory.setDefault(FeatureExprFactory.bdd)
+    FeatureExprFactory.setDefault(FeatureExprFactory.bdd)
 
     for (stat <- Stats.stats) {
 
@@ -76,16 +76,16 @@ object AnalyseStatistics extends App {
 
         //also does not consider the feature model
 
-//        val bdd = new LeakBDD(fexpr.asInstanceOf[BDDFeatureExpr])
-//
-//        import scala.collection.JavaConversions._
-//
-//        val allsat = bdd.getBDD.allsat().asInstanceOf[util.LinkedList[Array[Byte]]]
-//
-//        if (allsat.isEmpty) 0
-//        else allsat.map(_.count(_ >= 0)).min
-//
-        fexpr.collectDistinctFeatures.size
+        val bdd = new LeakBDD(fexpr.asInstanceOf[BDDFeatureExpr])
+
+        import scala.collection.JavaConversions._
+
+        val allsat = bdd.getBDD.allsat().asInstanceOf[util.LinkedList[Array[Byte]]]
+
+        if (allsat.isEmpty) 0
+        else allsat.map(_.count(_ >= 0)).min
+
+//        fexpr.collectDistinctFeatures.size
     }
 
 }
