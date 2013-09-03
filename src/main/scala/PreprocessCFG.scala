@@ -7,7 +7,7 @@ import de.fosd.typechef.featureexpr.FeatureExprFactory._
 object PreprocessCFG extends App {
 
     val path = "../BusyboxAnalysis/gitbusybox/"
-    val lines = scala.io.Source.fromFile(path + "finalcfg.cfg").getLines()
+    val lines = scala.io.Source.fromFile(path + "busybox.cfg").getLines()
 
     val output =new BufferedWriter(new FileWriter(new File(Stats.CCFG)))
 

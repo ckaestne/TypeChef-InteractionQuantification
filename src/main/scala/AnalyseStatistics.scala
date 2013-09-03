@@ -19,22 +19,28 @@ object Stats {
     val ASTANY = "astany.lst"
     val CCFG = "cfg.lst"
     val ANALYSIS = "analysis.lst"
+    val STMT= "stmt.lst"
     val EXPRTYPING = "exprtypes.lst"
+    val ANALYSIS_PIO = "pio.lst"
+    val ANALYSIS_COER = "coer.lst"
 
     case class Stat(file: String, descr: String, negated: Boolean = false)
 
     val stats = List(
-        Stat(FILEPC, ".c File compilation"),
-        Stat(ASTTL, "Top-level declarations"),
-        Stat(ASTANY, "Structural nesting in the AST\n(counting only subtrees with distinct presence conditions)"),
-        Stat(IMPORTS, "Imported functions"),
-        Stat(EXPORTS, "Exported functions"),
-        Stat(EXPORTSGROUPED, "Condition that a function is globally exported in the project"),
-        Stat(EXPORTSGROUPED, "Condition that a function is globally NOT exported in the project\n(relevant for linker checks)", true),
-        Stat(ASTTL, "Just for fun: condition that a top-level expression is locally NOT defined", true),
-        Stat(EXPRTYPING, "Expression types"),
-        Stat(CCFG, "Edges in an (incomplete?) control-flow graph"),
-        Stat(ANALYSIS, "Warnings from the simple static analyses (all type based, almost all integer warnings)")
+//        Stat(FILEPC, ".c File compilation"),
+//        Stat(ASTTL, "Top-level declarations"),
+        Stat(STMT, "Statements"),
+//        Stat(ASTANY, "Structural nesting in the AST\n(counting only subtrees with distinct presence conditions)"),
+//        Stat(IMPORTS, "Imported functions"),
+//        Stat(EXPORTS, "Exported functions"),
+//        Stat(EXPORTSGROUPED, "Condition that a function is globally exported in the project"),
+//        Stat(EXPORTSGROUPED, "Condition that a function is globally NOT exported in the project\n(relevant for linker checks)", true),
+//        Stat(ASTTL, "Just for fun: condition that a top-level expression is locally NOT defined", true),
+//        Stat(EXPRTYPING, "Expression types"),
+//        Stat(CCFG, "Edges in an (incomplete?) control-flow graph"),
+        //        Stat(ANALYSIS, "Warnings from the simple static analyses (all type based, almost all integer warnings)")
+                Stat(ANALYSIS_PIO, "Static analysis INT 30 and 32")        ,
+                Stat(ANALYSIS_COER, "Static analysis INT 31")
     )
 
 }
@@ -44,8 +50,7 @@ object AnalyseStatistics extends App {
 
     for (stat <- Stats.stats) {
 
-        val lines = Source.fromFile(stat.file).getLines()
-
+        val lines = Source.fromFile(stat.file).getLines().toList
 
         val results = for (line <- lines) yield {
 
@@ -58,7 +63,6 @@ object AnalyseStatistics extends App {
 
             (interactionDegree(fexpr), 1)
         }
-
         println(stat.descr + ": \n")
 
         val summary = results.toList.groupBy(_._1).mapValues(_.size)
